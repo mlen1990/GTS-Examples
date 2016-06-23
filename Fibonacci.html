@@ -31,6 +31,24 @@
 			td.align-center {
 				text-align: center;
 			}
+
+			span.helpCircle {
+			    content: '?';
+			    cursor: help;
+			    font-size: 50%;
+			    font-family: sans-serif;
+			    vertical-align: middle;
+			    font-weight: bold;
+			    text-align: center;
+			    display: inline-block;
+			    width: 2.8ex;
+			    height: 2.8ex;
+			    border-radius: 1.4ex;
+			    color: #999999;
+			    background: white;
+			    border: thin solid #999999;
+			    line-height: 2.8ex;
+			}
 		</style>
 		<script>
 			function fibonacci(n) {
@@ -61,10 +79,22 @@
 					8: 21,
 					12: 144
 				};
-				testDivHTML += '<div><table style="width:25%;"><thead><tr><th>Correct Output</th><th>Function Output</th><th>Result</th></tr></thead><tbody>';
+				var testNumber = 1;
+				testDivHTML += '<div>';
+				testDivHTML += '<table style="width:25%;">';
+				testDivHTML += '<thead>';
+				testDivHTML += '<tr>';
+				testDivHTML += '<th>Test #</th>';
+				testDivHTML += '<th>Correct Output <span class="helpCircle" title="This is the correct solution.">?</span></th>';
+				testDivHTML += '<th>Function Output <span class="helpCircle" title="This is what your function returned.">?</span></th>';
+				testDivHTML += '<th>Result</th>';
+				testDivHTML += '</tr>';
+				testDivHTML += '</thead>';
+				testDivHTML += '<tbody>';
 				for (n in sampleFibonacciNumbers) {
 					testDivHTML += '<tr>';
 					var nthNumber = fibonacci(n);
+					testDivHTML += '<td class="align-center">' + testNumber + '</td>';
 					testDivHTML += '<td class="align-center">' + sampleFibonacciNumbers[n] + '</td>';
 					testDivHTML += '<td class="align-center">' + nthNumber + '</td>';
 					if (nthNumber == sampleFibonacciNumbers[n]) {
@@ -73,6 +103,7 @@
 						testDivHTML += '<td class="fail align-center">FAILED!</td>';
 					}
 					testDivHTML += '</tr>';
+					testNumber++;
 				}
 				testDivHTML += '</body></table></div>';
 				var testDiv = document.getElementById('fibonacciTest').innerHTML = testDivHTML;
