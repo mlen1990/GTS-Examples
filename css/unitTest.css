@@ -1,0 +1,36 @@
+button.green-button {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+td.pass {
+	background-color: green;
+	color: white;
+	font-weight: bold;
+}
+
+td.fail {
+	background-color: red;
+	color: white;
+	font-weight: bold;
+}
+
+span.helpCircle {
+    content: '?';
+    cursor: help;
+    font-size: 50%;
+    font-family: sans-serif;
+    vertical-align: middle;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+    width: 2.8ex;
+    height: 2.8ex;
+    border-radius: 1.4ex;
+    color: #999999;
+    background: white;
+    border: thin solid #999999;
+    line-height: 2.8ex;
+}
