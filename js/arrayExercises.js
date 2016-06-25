@@ -61,7 +61,7 @@ function unitTestReverseArray() {
 		tableHTML += '<td>[' + tests[i].input.join(', ') + ']</td>';
 		tableHTML += '<td>[' + reverseArray(tests[i].input).join(', ') + ']</td>';
 		tableHTML += '<td>[' + tests[i].solution.join(', ') + ']</td>';
-		tableHTML += '<td class="align-center "></td>';
+		tableHTML += '<td class="align-center"></td>';
 		tableHTML += '</tr>';
 	};
 
