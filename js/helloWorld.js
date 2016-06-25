@@ -1,15 +1,47 @@
+/**
+  *
+  *	This function returns the string "Hello World!"
+  *
+  *	@param none
+  *
+  *	@return string "Hello World!"
+  *
+  */
 function helloWorld() {
 	return "Hello World!";
 }
 
+/**
+  *
+  *	Displays the string returned by helloWorld() to the UI
+  *
+  *	@param none
+  *
+  *	@return none
+  *
+  */
 function testHelloWorld() {
 	$('#helloWorld').html(helloWorld());
 }
 
+/**
+  *
+  *	Returns true if x is even and false otherwise
+  *
+  *	@param int x
+  *
+  *	@return bool
+  *
+  */
 function isEven(x) {
 	return (x % 2 == 0);
 }
 
+/**
+  *
+  *	Unit Test for the isEven(x) function. Displays a table on the UI indicating whether the test passed or failed.
+  *
+  */
 function testIsEven() {
 	var tests = [
 		{
@@ -89,20 +121,34 @@ function testIsEven() {
 	});
 }
 
-function dessert(number) {
-	if (number < 0) {
+/**
+  *
+  *	Returns true if x is even and false otherwise
+  *
+  *	@param int x
+  *
+  *	@return bool
+  *
+  */
+function dessert(x) {
+	if (x < 0) {
 		return 'Ice Cream';
-	} else if (number == 0) {
+	} else if (x == 0) {
 		return 'Pie';
-	} else if (0 < number && number < 4) {
+	} else if (0 < x && x < 4) {
 		return 'Cake';
-	} else if (4 <= number && number < 10) {
+	} else if (4 <= x && x < 10) {
 		return 'Milkshake';
-	} else if (number >= 10) {
+	} else if (x >= 10) {
 		return 'Candy';
 	}
 }
 
+/**
+  *
+  *	Unit Test for the dessert(x) function. Displays a table on the UI indicating whether the test passed or failed.
+  *
+  */
 function testDessert() {
 	var tests = [
 		{
@@ -180,14 +226,4 @@ function testDessert() {
 		var tdElements = $(trElement).find('td');
 		setTimeout(computeResult(tdElements[3].innerHTML, tdElements[2].innerHTML, tdElements[4]), 500 * index);
 	});
-}
-
-function computeResult(expected, actual, element) {
-	return function() {
-		if (expected == actual) {
-			$(element).html('PASSED!').addClass('pass');
-		} else {
-			$(element).html('FAILED!').addClass('fail');
-		}
-	}
 }
