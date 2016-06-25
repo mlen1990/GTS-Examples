@@ -28,22 +28,22 @@ function testFibonacci() {
 	};
 	var testNumber = 1;
 	testDivHTML += '<div>';
-	testDivHTML += '<table style="width:25%;">';
+	testDivHTML += '<table style="width:40%;">';
 	testDivHTML += '<thead>';
 	testDivHTML += '<tr>';
-	testDivHTML += '<th>Test #</th>';
-	testDivHTML += '<th>Correct Output <span class="helpCircle" title="This is the correct solution.">?</span></th>';
-	testDivHTML += '<th>Function Output <span class="helpCircle" title="This is what your function returned.">?</span></th>';
-	testDivHTML += '<th>Result</th>';
+	testDivHTML += '<th class="align-left">Test #</th>';
+	testDivHTML += '<th class="align-left">Correct Output <span class="helpCircle" title="This is the correct solution.">?</span></th>';
+	testDivHTML += '<th class="align-left">Function Output <span class="helpCircle" title="This is what your function returned.">?</span></th>';
+	testDivHTML += '<th class="align-left">Result</th>';
 	testDivHTML += '</tr>';
 	testDivHTML += '</thead>';
 	testDivHTML += '<tbody>';
 	for (n in sampleFibonacciNumbers) {
 		testDivHTML += '<tr>';
 		var nthNumber = fibonacci(n);
-		testDivHTML += '<td class="align-center">' + testNumber + '</td>';
-		testDivHTML += '<td class="align-center">' + sampleFibonacciNumbers[n] + '</td>';
-		testDivHTML += '<td class="align-center">' + nthNumber + '</td>';
+		testDivHTML += '<td>' + testNumber + '</td>';
+		testDivHTML += '<td>' + sampleFibonacciNumbers[n] + '</td>';
+		testDivHTML += '<td>' + nthNumber + '</td>';
 		if (nthNumber == sampleFibonacciNumbers[n]) {
 			testDivHTML += '<td class="pass align-center">PASSED!</td>';
 		} else {

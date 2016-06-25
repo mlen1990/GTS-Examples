@@ -6,6 +6,89 @@ function testHelloWorld() {
 	$('#helloWorld').html(helloWorld());
 }
 
+function isEven(x) {
+	return (x % 2 == 0);
+}
+
+function testIsEven() {
+	var tests = [
+		{
+			input: -1,
+			output: false
+		},
+		{
+			input: 0,
+			output: true
+		},
+		{
+			input: 1,
+			output: false
+		},
+		{
+			input: 2,
+			output: true
+		},
+		{
+			input: 3,
+			output: false
+		},
+		{
+			input: 4,
+			output: true
+		},
+		{
+			input: 5,
+			output: false
+		},
+		{
+			input: 6,
+			output: true
+		},
+		{
+			input: 7,
+			output: false
+		},
+		{
+			input: 8,
+			output: true
+		},
+		{
+			input: 9,
+			output: false
+		},
+		{
+			input: 10,
+			output: true
+		},
+		{
+			input: 777,
+			output: false
+		}
+	];
+	var testDiv = '<table style="width:60%;"><thead><tr>';
+	testDiv += '<th class="align-left">Test Case #</th>';
+	testDiv += '<th class="align-left">Input</th>';
+	testDiv += '<th class="align-left">Function Output</th>';
+	testDiv += '<th class="align-left">Correct Output</th>';
+	testDiv += '<th class="align-left">Result</th>';
+	testDiv += '</tr></thead><tbody>';
+	for (var i = 0; i < tests.length; i++) {
+		testDiv += '<tr class="is-even-test-case">';
+		testDiv += '<td>' + (i + 1) + '</td>';
+		testDiv += '<td>' + tests[i].input + '</td>';
+		testDiv += '<td>' + isEven(tests[i].input) + '</td>';
+		testDiv += '<td>' + tests[i].output + '</td>';
+		testDiv += '<td class="align-center"></td>';
+		testDiv += '</tr>';
+	};
+	testDiv += '</tbody></table>';
+	$('#isEven').html(testDiv);
+	$('.is-even-test-case').each(function(index, trElement) {
+		var tdElements = $(trElement).find('td');
+		setTimeout(computeResult(tdElements[3].innerHTML, tdElements[2].innerHTML, tdElements[4]), 500 * index);
+	});
+}
+
 function dessert(number) {
 	if (number < 0) {
 		return 'Ice Cream';
@@ -23,67 +106,54 @@ function dessert(number) {
 function testDessert() {
 	var tests = [
 		{
-			testCase: '',
 			input: -1,
 			output: 'Ice Cream'
 		},
 		{
-			testCase: '',
 			input: 0,
 			output: 'Pie'
 		},
 		{
-			testCase: '',
 			input: 1,
 			output: 'Cake'
 		},
 		{
-			testCase: '',
 			input: 2,
 			output: 'Cake'
 		},
 		{
-			testCase: '',
 			input: 3,
 			output: 'Cake'
 		},
 		{
-			testCase: '',
 			input: 4,
 			output: 'Milkshake'
 		},
 		{
-			testCase: '',
 			input: 5,
 			output: 'Milkshake'
 		},
 		{
-			testCase: '',
 			input: 6,
 			output: 'Milkshake'
 		},
 		{
-			testCase: '',
 			input: 7,
 			output: 'Milkshake'
 		},
 		{
-			testCase: '',
 			input: 8,
 			output: 'Milkshake'
 		},
 		{
-			testCase: '',
 			input: 9,
 			output: 'Milkshake'
 		},
 		{
-			testCase: '',
 			input: 10,
 			output: 'Candy'
 		},
 		{
-			testCase: '',
 			input: 777,
 			output: 'Candy'
 		}
@@ -94,8 +164,7 @@ function testDessert() {
 	testDiv += '<th class="align-left">Function Output</th>';
 	testDiv += '<th class="align-left">Correct Output</th>';
 	testDiv += '<th class="align-left">Result</th>';
-	testDiv += '</tr>';
-	testDiv += '<tbody>';
+	testDiv += '</tr></thead><tbody>';
 	for (var i = 0; i < tests.length; i++) {
 		testDiv += '<tr class="dessert-test-case">';
 		testDiv += '<td>' + (i + 1) + '</td>';
@@ -109,10 +178,16 @@ function testDessert() {
 	$('#testDessert').html(testDiv);
 	$('.dessert-test-case').each(function(index, trElement) {
 		var tdElements = $(trElement).find('td');
-		if (tdElements[2].innerHTML == tdElements[3].innerHTML) {
-			$(tdElements[4]).html('PASSED!').addClass('pass');
-		} else {
-			$(tdElements[4]).html('FAILED!').addClass('fail');
-		}
+		setTimeout(computeResult(tdElements[3].innerHTML, tdElements[2].innerHTML, tdElements[4]), 500 * index);
 	});
+}
+
+function computeResult(expected, actual, element) {
+	return function() {
+		if (expected == actual) {
+			$(element).html('PASSED!').addClass('pass');
+		} else {
+			$(element).html('FAILED!').addClass('fail');
+		}
+	}
 }
